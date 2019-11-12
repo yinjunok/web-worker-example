@@ -10,13 +10,18 @@
 
   <script>
     const worker = new Worker('/basic/worker.js')
-
-    worker.onmessage = function(e) {
+    worker.addEventListener('message', (e) => {
       console.log('main', e.data)
       setTimeout(() => {
         worker.postMessage('the message from main')
       }, 1000)
-    }
+    })
+    // worker.onmessage = function(e) {
+    //   console.log('main', e.data)
+    //   setTimeout(() => {
+    //     worker.postMessage('the message from main')
+    //   }, 1000)
+    // }
     worker.postMessage('first message')
   </script>
 </body>
