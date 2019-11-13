@@ -17,7 +17,10 @@ postMessage('message')
 
 // 在 main 接受消息
 worker.onmessage = function(e) {}
-workder.addEventListener('message', (e) => {})
+workder.addEventListener('message', (e) => {
+  // 传过来的数据在时间对象的 data 里
+  console.log(e.data)
+})
 
 // 在 worker 里
 this.addEventListener('message', (e) => {})
